@@ -30,3 +30,21 @@ struct Pokemon: Decodable {
     }
 }
 ```
+
+## Adding AnyCodingKey as a Dependency
+
+To use the `AnyCodingKey` library in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
+
+```swift
+.package(url: "https://github.com/RNCodable/AnyCodingKey", from: "1.0.0"),
+```
+
+Include `"AnyCodingKey"` as a dependency for your executable target:
+
+```swift
+.target(name: "<target>", dependencies: [
+    .product(name: "AnyCodingKey"),
+]),
+```
+
+Finally, add `import AnyCodingKey` to your source code.
