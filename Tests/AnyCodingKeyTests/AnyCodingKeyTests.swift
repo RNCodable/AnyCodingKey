@@ -48,7 +48,7 @@ final class AnyCodingKeyTests: XCTestCase {
     }
 
     // ACK can be initialized with a CodingKeyRepresentable
-    @available(macOS 12.3, *)
+    @available(macOS 12.3, iOS 15.4, watchOS 8.5, tvOS 15.4, *)
     func testCodingKeyRepresentableInitializer() {
         let otherKey = 1 as CodingKeyRepresentable
         let key = AnyCodingKey(otherKey)
@@ -65,6 +65,15 @@ final class AnyCodingKeyTests: XCTestCase {
         let intKey = AnyCodingKey(intValue: 1)
         XCTAssertEqual(intKey.description, "1")
         XCTAssertEqual("\(intKey)", "1")
+    }
+
+    // ACK conforms to CustomDebugStringConvertible
+    func testCustomDebugStringConvertibleConformance() {
+        let stringKey = AnyCodingKey(stringValue: "abc")
+        XCTAssertEqual(stringKey.debugDescription, "\"abc\"")
+
+        let intKey = AnyCodingKey(intValue: 1)
+        XCTAssertEqual(intKey.debugDescription, "\"1\"")
     }
 
     // ACK conforms to ExpressibleByStringLiteral

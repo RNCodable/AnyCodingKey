@@ -1,5 +1,5 @@
-/// A  key for any encoding and decoding container.
-public struct AnyCodingKey: Hashable, Sendable {
+/// A  `CodingKey` for any encoding or decoding container.
+public struct AnyCodingKey: Hashable {
 
     /// The string to use in a named collection (e.g. a string-keyed dictionary).
     public var stringValue: String
